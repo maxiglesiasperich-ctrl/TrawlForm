@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ─── Específico de TrawlForm ───────────────────────────────────────────────
+# Configuración personal del editor (VS Code)
+.vscode/
+
+# Resultados generados por el programa (se regeneran con python main.py)
+outputs/
+inputs/models/scaled_models/
