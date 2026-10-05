@@ -226,3 +226,6 @@ __marimo__/
 # Resultados generados por el programa (se regeneran con python main.py)
 outputs/
 inputs/models/scaled_models/
+
+# Bases de datos de entrada (datos de Sea-web, no se suben)
+database/input/
