@@ -208,6 +208,35 @@ las formas predefinidas de Maxsurf; el pesquero real vendrá después).
 - Con la RIB, Holtrop y Van Oortmerssen quedan fuera de rango; Van Oortmerssen
   llega a dar resistencias negativas (extrapolación de la regresión).
 
+### Base de datos de pesqueros - database/ (añadida por el usuario el 2026-10-05)
+- `bdds - Fishing Vessels 21-27m.xlsx`, hoja `clean_bbd`: 360 pesqueros de 21-27 m
+  LOA (exportación de Sea-web, datos comerciales: no publicar). 17 columnas: LRIMOShipNo,
+  ShipName, GrossTonnage, Deadweight, LengthOverallLOA, LengthBetweenPerpendicularsLBP,
+  Depth, Breadth, Draught, DeliveryDate (aaaammdd), FlagName, NumberOfPropulsionUnits,
+  ShipStatusCode, Speed [kn], TotalHorsepowerofMainEngines [hp], Displacement [t],
+  PropellerType. Son los buques de la base bruta (`- old.xlsx`, hoja `FV 21-27m`, 3944
+  buques, faltan datos guardados como 0) con esas 8 columnas numéricas > 0.
+- Sesgo conocido y ACEPTADO por el usuario para hacer pruebas: solo 138 diseños
+  distintos (series soviéticas; una de 121 buques: LBP 22, B 6,8-7, D 3,3, T 2,39,
+  Δ 174 t, 300 hp, 9,5 kn), 87 % entregados en 1980-1999, banderas exsoviéticas,
+  porque el desplazamiento solo está en el 12 % de la base bruta (sobre todo años
+  80-90). Valores sospechosos: SCHS-1001 (Cb 0,88) y NUEVO ATXARRE (Cb 0,26).
+- Medianas: LBP 22 m, B 6,8, D 3,3, T 2,39, Δ 183 t, 9,5 kn, 300 hp; L/B 3,24, B/T
+  2,82, B/D 2,12, D/T 1,32, Cb 0,50, FnL 0,33. Con L/B ≈ 3,2 Holtrop queda fuera de
+  rango (L/B ≥ 3,9); Van Oortmerssen sí encaja.
+- El usuario la sustituirá por una base mejor depurada CON EL MISMO FORMATO: el código
+  debe leer las columnas por su nombre y no por su posición.
+- Estructura (2026-10-05): database/input/ (base limpia), database/output/ (resultados),
+  database/parameter_relations.py (script del usuario: nombres de funciones en inglés,
+  como los puso él). El usuario pidió TODAS las relaciones (columns × columns) y código
+  sencillo, sin florituras ni funciones prescindibles. Configuración arriba: DATABASE_PATH,
+  SHEET, COLUMNS (nombre corto -> columna), DISTINCT_RELATIONS, TOP_PAIRS. La base se carga
+  como DataFrame; Pearson = df.corr(); establish_relations ajusta y = b0 + b1·x para cada
+  pareja con β = (XᵀX)⁻¹XᵀY (matrices b0, b1, r²; fila = y, columna = x). Salidas:
+  pearson_matrix.xlsx (Pearson r, r2, b0, b1, Ranking, Estadísticas), pearson_matrix.png,
+  relations.png (matriz 10×10 de gráficas con recta y r²; diagonal = histograma) y report.txt.
+  El archivo "- old" se quedó en database/ (no es la base que se usa).
+
 ### Pendiente para más adelante (decidido por el usuario el 2026-10-05)
 - Poder introducir tanto factores como medidas objetivo (eslora, manga, calado...).
 - Posible: aviso de francobordo (calado mayor que el puntal) si se sabe la cubierta.

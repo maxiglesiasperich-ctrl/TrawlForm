@@ -1,3 +1,4 @@
 pywin32>=306
 openpyxl>=3.1
 matplotlib>=3.8
+pandas>=2.0
