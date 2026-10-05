@@ -312,7 +312,8 @@ reports/             ← generación de resultados
 inputs/models/       ← tus modelos .msd
     scaled_models/   ←   modelos escalados que genera el programa
 outputs/             ← resultados
-documentacion/       ← documentación técnica (PDF); manuales de Maxsurf solo en local
+documentacion/       ← documentación técnica (PDF) y manuales de Maxsurf
+CLAUDE.md            ← notas de desarrollo: objetivos, decisiones y particularidades de Maxsurf
 ```
 
 ---
@@ -347,10 +348,9 @@ documentacion/       ← documentación técnica (PDF); manuales de Maxsurf solo
   GMl ni MTc. Sí da KMt y KMl.
 - **Licencia de Maxsurf**: este programa usa la licencia que tengas instalada. Con
   licencia académica, los resultados son solo para uso académico.
-- **Manuales de Maxsurf**: son propiedad de Bentley Systems y **no se incluyen en este
-  repositorio**. Los encontrarás en la carpeta de instalación de Maxsurf
-  (`ModelerManual.pdf` y `ResistanceManual.pdf`); si los copias en
-  `documentacion/manuales_maxsurf/`, el `.gitignore` evita que se suban.
+- **Manuales de Maxsurf**: los de `documentacion/manuales_maxsurf/` (Modeler y
+  Resistance) son propiedad de Bentley Systems. Están en este repositorio privado como
+  referencia; no los publiques si algún día el repositorio pasa a ser público.
 - **Licencia**: este repositorio no tiene licencia de uso. Todos los derechos están
   reservados: puedes consultar el código, pero no reutilizarlo ni redistribuirlo sin
   permiso del autor.

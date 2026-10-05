@@ -2,14 +2,9 @@
 __pycache__/
 *.pyc
 
-# Notas de trabajo y configuración del editor (personales)
-CLAUDE.md
+# Configuración personal del editor (VS Code)
 .vscode/
 
 # Resultados generados por el programa (se regeneran con python main.py)
 outputs/
 inputs/models/scaled_models/
-
-# Manuales de Maxsurf (copyright de Bentley Systems): no subirlos a un repositorio
-# público. Si el repositorio es privado y quieres incluirlos, borra la línea siguiente.
-documentacion/manuales_maxsurf/
